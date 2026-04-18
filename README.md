@@ -1,78 +1,48 @@
-# Spring AI Chatbot — Ollama Integration
+# Spring AI Chatbot (Ollama Integration)
 
-A proof-of-concept demonstrating how to build a chatbot backend using Spring Boot and integrate it with a locally running large language model using Ollama and Spring AI.
+## Project Overview
+
+This project is a Spring Boot-based chatbot backend that integrates with a locally running Large Language Model (LLM) using Ollama and Spring AI. It provides REST APIs to send user input to the model and receive intelligent responses.
+
+The application demonstrates how to build a backend service that connects to a local AI model instead of using external APIs.
 
 ---
 
-## What is this Project?
+## What is Ollama?
 
-This project is a backend service that allows users to interact with an AI model through REST APIs.
+Ollama is a tool that allows you to run Large Language Models (LLMs) locally on your system.
 
-Instead of calling external APIs, it connects to a locally running model using Ollama.
+Instead of calling cloud-based AI APIs, Ollama runs models directly on your machine, providing:
 
-## Example Flow
+- Faster responses  
+- Better privacy  
+- No API cost  
 
-User: "Explain Java streams"
+---
 
-↓
+## What is a Large Language Model (LLM)?
 
-API receives request
+A Large Language Model (LLM) is an AI model trained on large datasets to understand and generate human-like text.
 
-↓
+It can:
+- Answer questions  
+- Explain concepts  
+- Generate text  
+- Assist in coding  
 
-Service sends prompt to Ollama
+In this project, the chatbot sends user input to an LLM through Ollama and returns the generated response.
 
-↓
+---
 
-Ollama generates response
-
-↓
-
-Response returned to user
-
-## Architecture
-
-```
-┌──────────────────────────────┐
-│        Client (User)         │
-│  (Postman / Frontend App)    │
-└──────────────┬───────────────┘
-               │ HTTP Request
-               ▼
-┌──────────────────────────────┐
-│     Spring Boot Backend      │
-│                              │
-│   ChatController (/chat)     │
-│              ↓               │
-│       ChatService            │
-│              ↓               │
-│      Spring AI Layer         │
-│              ↓               │
-│        Ollama (LLM)          │
-└──────────────────────────────┘
-```
-
-## Project Structure
+## How It Works
 
 ```
-src/main/java/
-
-├── controller/
-│   └── ChatController.java         Handles API requests
-│
-├── service/
-│   └── ChatService.java            Business logic and AI interaction
-│
-├── dto/
-│   ├── ChatRequest.java            Request payload
-│   └── ChatResponse.java           Response payload
-│
-└── SpringAiChatbotApplication.java Main entry point
+Client → REST API → ChatController → ChatService → Ollama → Response
 ```
 
-## How the Chat Flow Works
+### Flow Explanation
 
-1. User sends a message using REST API  
+1. User sends a message via API  
 2. ChatController receives the request  
 3. ChatService processes the message  
 4. Spring AI sends the prompt to Ollama  
@@ -83,30 +53,46 @@ src/main/java/
 
 ## Features
 
-- REST-based chatbot API  
-- Integration with local LLM via Ollama  
+- REST API for chatbot interaction  
+- Integration with local LLM using Ollama  
+- Structured request and response using DTOs  
 - Clean layered architecture  
 - No external API dependency  
-- Fast local inference  
-- Easily extendable for advanced AI features  
+- Fast and private local execution  
+
+---
+
+## Project Structure
+
+```
+src/main/java/
+
+├── controller/
+│   └── ChatController.java
+
+├── service/
+│   └── ChatService.java
+
+├── dto/
+│   ├── ChatRequest.java
+│   └── ChatResponse.java
+
+└── SpringAiChatbotApplication.java
+```
 
 ---
 
 ## Tech Stack
 
-Technology        Role
------------       -------------------------
-Spring Boot       Backend framework
-Spring AI         AI integration layer
-Ollama            Local LLM runtime
-Java              Programming language
-Maven             Build tool
+- Java  
+- Spring Boot  
+- Spring AI  
+- Ollama  
+- Maven  
 
 ---
 
-## Getting Started
-
-### Prerequisites
+## Prerequisites
 
 - Java 17 or higher  
 - Maven  
@@ -114,28 +100,44 @@ Maven             Build tool
 
 ---
 
-### Install Ollama
+## Install and Run Ollama
 
-Download from:
+### Step 1: Download
+
+Download from:  
 https://ollama.com
 
-Run a model:
+---
 
-```bash
+### Step 2: Run a Model
+
+```
 ollama run llama2
+```
+
+This will download and start the model locally.
+
+---
+
+### Step 3: Verify Installation
+
+```
+ollama --version
 ```
 
 ---
 
-### Start the Application
+## Run the Application
 
-```bash
+```
 mvn spring-boot:run
 ```
 
-Server starts at:
+Application runs at:
 
+```
 http://localhost:8080
+```
 
 ---
 
@@ -147,21 +149,21 @@ POST /chat
 
 ---
 
-### Request Example
+### Request
 
 ```json
 {
-  "message": "Explain microservices architecture"
+  "message": "Hello"
 }
 ```
 
 ---
 
-### Response Example
+### Response
 
 ```json
 {
-  "response": "Microservices architecture is a design approach..."
+  "response": "Hello! How can I help you?"
 }
 ```
 
@@ -169,10 +171,10 @@ POST /chat
 
 ## Use Cases
 
-- Chatbot backend for applications  
+- Backend for chatbot applications  
 - Local AI assistant  
-- Testing and experimenting with LLMs  
-- AI-enabled backend services  
+- LLM experimentation  
+- AI-powered backend systems  
 
 ---
 
@@ -180,7 +182,7 @@ POST /chat
 
 - Conversation memory  
 - Context awareness  
-- Document ingestion (RAG)  
+- Document-based Q&A  
 - Database integration  
 - Authentication and security  
 
@@ -188,10 +190,6 @@ POST /chat
 
 ## Conclusion
 
-This project demonstrates how to build a chatbot backend using Spring Boot and integrate it with a local LLM using Ollama. It provides a simple and scalable foundation for building AI-powered applications.
+This project demonstrates how to build a chatbot backend using Spring Boot and integrate it with a local LLM using Ollama. It provides a scalable and cost-effective approach for building AI-powered applications without relying on external APIs.
 
 ---
-
-## Author
-
-Sheetal Singh
