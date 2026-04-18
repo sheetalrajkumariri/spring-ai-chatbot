@@ -26,6 +26,7 @@ Response returned to user
 
 ## Architecture
 
+```
 ┌──────────────────────────────┐
 │        Client (User)         │
 │  (Postman / Frontend App)    │
@@ -43,8 +44,7 @@ Response returned to user
 │              ↓               │
 │        Ollama (LLM)          │
 └──────────────────────────────┘
-
----
+```
 
 ## Project Structure
 
