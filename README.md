@@ -48,6 +48,7 @@ Response returned to user
 
 ## Project Structure
 
+```
 src/main/java/
 
 ├── controller/
@@ -61,8 +62,7 @@ src/main/java/
 │   └── ChatResponse.java           Response payload
 │
 └── SpringAiChatbotApplication.java Main entry point
-
----
+```
 
 ## How the Chat Flow Works
 
