@@ -10,19 +10,25 @@ This project is a backend service that allows users to interact with an AI model
 
 Instead of calling external APIs, it connects to a locally running model using Ollama.
 
-Example flow:
+## Example Flow
 
 User: "Explain Java streams"
-  ↓
-API receives request
-  ↓
-Service sends prompt to Ollama
-  ↓
-Ollama generates response
-  ↓
-Response returned to user
 
----
+↓
+
+API receives request
+
+↓
+
+Service sends prompt to Ollama
+
+↓
+
+Ollama generates response
+
+↓
+
+Response returned to user
 
 ## Architecture
 
